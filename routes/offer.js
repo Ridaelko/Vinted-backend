@@ -58,29 +58,29 @@ router.post(
   }
 );
 
-// router.get("/offers", async (req, res) => {
-//   try {
-//     const filter = {};
+router.get("/offers", async (req, res) => {
+  try {
+    const filter = {};
 
-//     if (req.query.title) {
-//       filter.product_name = new RegExp(req.query.title, "i");
-//     }
+    if (req.query.title) {
+      filter.product_name = new RegExp(req.query.title, "i");
+    }
 
-//     if (req.query.priceMin) {
-//       filter.product_price = req.query.priceMin;
-//     }
+    if (req.query.priceMin) {
+      filter.product_price = req.query.priceMin;
+    }
 
-//     const offers = await Offer.find().sort({ product_price: 1 });
-//     console.log(req.query.sort);
+    const offers = await Offer.find().sort({ product_price: 1 });
+    console.log(req.query.sort);
 
-//     console.log(filter);
+    console.log(filter);
 
-//     res.json({ offers: offers });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ error: error.message });
-//   }
-// });
+    res.json({ offers: offers });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: error.message });
+  }
+});
 
 router.get("/offers/:id", async (req, res) => {
   try {
