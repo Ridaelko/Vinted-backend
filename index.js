@@ -4,10 +4,10 @@ const fileUpload = require("express-fileupload"); // on installe et require ça 
 const cloudinary = require("cloudinary").v2;
 
 const cors = require("cors");
-app.use(cors());
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 require("dotenv").config();
 
